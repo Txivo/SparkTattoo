@@ -21,6 +21,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // Two passwords are equal to eachother this is the first validation.
     // password and confirmpassword are going to appear below as a "name" example:
     // name="password" and name="confirmpassword"
+    
+    /*
+    Considera la opción de hashear la contraseña en lugar de usarla en plano para evitar problemas usando algo como lo sieguiente:
+    require 'password.php';
+
+    $passwordHash = password_hash('secret-password', PASSWORD_DEFAULT);
+
+    if (password_verify('bad-password', $passwordHash)) {
+        // Correct Password
+    } else {
+        // Wrong password
+    }
+    
+    Para más info puedes mirar aquí por ejemplo, que está muy completo: https://phptherightway.com/#security
+    ¡Espero no molestar! Estaba buscando contribuir en algo relacionado con tatuaje. :)
+    */
 
     if ($_POST['password'] == $_POST['confirmpassword']){
 
@@ -31,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         // before you set the variables be sure to use thier "real_escape_string" and this just escapes 
         // all the special characters to to be able o insert them inside mysql
         $username = $mysqli->real_escape_string($_POST['username']);
+        //echo htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
 
         $email = $mysqli->real_escape_string($_POST['email']);
 
