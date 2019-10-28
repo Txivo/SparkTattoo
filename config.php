@@ -3,7 +3,7 @@
 $server = "localhost";
 $username = "root";
 $password = "root";
-$dbname = "solappdb";
+$dbname = "sparktat";
 
 
 

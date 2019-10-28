@@ -7,7 +7,7 @@ $_SESSION['message'] == '';
 $server = "localhost";
 $username = "root";
 $password = "root";
-$dbname = "delei_registrarsedb";
+$dbname = "sparktat";
 
 // $mysqli =  new mysqli ('localhost','root','root','delei_registrarsedb')
 $conn =  new mysqli ($server,$username,$password,$dbname);
