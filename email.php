@@ -16,19 +16,19 @@ if(isset($_POST['email'])) {
  
  
     // validation expected data exists
-    if(!isset($_POST['first_name']) ||
-        !isset($_POST['telephone']) ||
+    if(!isset($_POST['nombre']) ||
+        !isset($_POST['telefono']) ||
         !isset($_POST['email']) ||
-        !isset($_POST['comments'])) {
+        !isset($_POST['mensaje'])) {
         died('We are sorry, but there appears to be a problem with the form you submitted.');       
     }
  
      
  
-    $first_name = $_POST['first_name']; // required
-    $telephone = $_POST['telephone']; // not required
+    $nombre = $_POST['nombre']; // required
+    $telefono = $_POST['telefono']; // not required
     $email_from = $_POST['email']; // required
-    $comments = $_POST['comments']; // required
+    $mensaje = $_POST['mensaje']; // required
  
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
@@ -61,16 +61,16 @@ if(isset($_POST['email'])) {
  
      
  
-    $email_message .= "First Name: ".clean_string($first_name)."\n";
-    $email_message .= "Telephone: ".clean_string($telephone)."\n";
-    $email_message .= "Email: ".clean_string($email_from)."\n";
-    $email_message .= "Comments: ".clean_string($comments)."\n";
+    $email_message .= "Nombre: ".clean_string($nombre)."\n";
+    $email_message .= "Telefono: ".clean_string($telefono)."\n";
+    $email_message .= "Email: ".clean_string($email)."\n";
+    $email_message .= "Mensaje: ".clean_string($mensaje)."\n";
  
 // create email headers
 $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_from."\r\n" .
 'X-Mailer: PHP/' . phpversion();
-@mail($email_to, $email_subject, $email_message, $headers);  
+@mail($email_to, $email_message, $headers);  
 ?>
  
 <!-- include your own success html here -->
@@ -430,7 +430,7 @@ Thank you for contacting us. We will be in touch with you very soon.
       </div>
     </div>
 
-
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
 
 <form name="contactform" method="post" action="send_form_email.php">
 <table width="450px">
@@ -468,7 +468,7 @@ Thank you for contacting us. We will be in touch with you very soon.
 </tr>
 <tr>
  <td colspan="2" style="text-align:center">
-  <input type="submit" value="Submit">   <a href="http://www.freecontactform.com/email_form.php">Email Form</a>
+  <input type="submit" value="Submit">   <a href="">Email Form</a>
  </td>
 </tr>
 </table>
@@ -542,21 +542,27 @@ Thank you for contacting us. We will be in touch with you very soon.
                         <!-- First Name input -->
                         <div class="form-group">
                           <label for="Nombre"></label>
-                          <input type="text" class="form-control" id="exampleFormControlInput1"
+                          <input type="text" name="nombre" class="form-control" id="exampleFormControlInput1"
                             placeholder="   Nombre..">
                         </div>
 
                         <!-- Apellido Paterno input -->
                         <div class="form-group">
                           <label for="telefono"></label>
-                          <input type="text" class="form-control" id="exampleFormControlInput1"
+                          <input type="text" name="telefono" class="form-control" id="exampleFormControlInput1"
                             placeholder="   Telefono..">
                         </div>
 
                         <!-- Email input -->
                         <div class="form-group">
+
+
+                            <!-- code from tutorial -->
+                        <form name="contactform" method="post" action="send_form_email.php">
+
+
                           <label for="exampleFormControlInput1"></label>
-                          <input type="text" class="form-control" id="exampleFormControlInput1"
+                          <input type="text" name="email" class="form-control" id="exampleFormControlInput1"
                             placeholder="   nombre@ejemplo.com">
                         </div>
 
@@ -832,7 +838,7 @@ Thank you for contacting us. We will be in touch with you very soon.
       <script>
         // Initialize Firebase
         var config = {
-      apiKey: "AIzaSyCJCXcrNZ7tqIt_CUu1pp8tMwBIJtrW1o8",
+      apiKey: "AIzaSyD5ZR8TtaPXdKEvEDHFschoUMz4xMkjpWQ",
       authDomain: "deleiphone-b0f98.firebaseapp.com",
       databaseURL: "https://deleiphone-b0f98.firebaseio.com",
       projectId: "deleiphone-b0f98"
