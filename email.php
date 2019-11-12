@@ -1,87 +1,3 @@
-<?php
-if(isset($_POST['email'])) {
- 
-    // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "txivo@yahoo.com";
-    $email_subject = "Your email subject line";
- 
-    function died($error) {
-        // your error code can go here
-        echo "We are very sorry, but there were error(s) found with the form you submitted. ";
-        echo "These errors appear below.<br /><br />";
-        echo $error."<br /><br />";
-        echo "Please go back and fix these errors.<br /><br />";
-        die();
-    }
- 
- 
-    // validation expected data exists
-    if(!isset($_POST['nombre']) ||
-        !isset($_POST['telefono']) ||
-        !isset($_POST['email']) ||
-        !isset($_POST['mensaje'])) {
-        died('We are sorry, but there appears to be a problem with the form you submitted.');       
-    }
- 
-     
- 
-    $nombre = $_POST['nombre']; // required
-    $telefono = $_POST['telefono']; // not required
-    $email_from = $_POST['email']; // required
-    $mensaje = $_POST['mensaje']; // required
- 
-    $error_message = "";
-    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
- 
-  if(!preg_match($email_exp,$email_from)) {
-    $error_message .= 'The Email Address you entered does not appear to be valid.<br />';
-  }
- 
-    $string_exp = "/^[A-Za-z .'-]+$/";
- 
-  if(!preg_match($string_exp,$first_name)) {
-    $error_message .= 'The First Name you entered does not appear to be valid.<br />';
-  }
- 
-  if(strlen($comments) < 2) {
-    $error_message .= 'The Comments you entered do not appear to be valid.<br />';
-  }
- 
-  if(strlen($error_message) > 0) {
-    died($error_message);
-  }
- 
-    $email_message = "Form details below.\n\n";
- 
-     
-    function clean_string($string) {
-      $bad = array("content-type","bcc:","to:","cc:","href");
-      return str_replace($bad,"",$string);
-    }
- 
-     
- 
-    $email_message .= "Nombre: ".clean_string($nombre)."\n";
-    $email_message .= "Telefono: ".clean_string($telefono)."\n";
-    $email_message .= "Email: ".clean_string($email)."\n";
-    $email_message .= "Mensaje: ".clean_string($mensaje)."\n";
- 
-// create email headers
-$headers = 'From: '.$email_from."\r\n".
-'Reply-To: '.$email_from."\r\n" .
-'X-Mailer: PHP/' . phpversion();
-@mail($email_to, $email_message, $headers);  
-?>
- 
-<!-- include your own success html here -->
- 
-Thank you for contacting us. We will be in touch with you very soon.
- 
-<?php
- 
-}
-?>
-
 <html lang="en">
 
 <head>
@@ -89,6 +5,7 @@ Thank you for contacting us. We will be in touch with you very soon.
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- Compiled and minified CSS -->
+  <!-- <link rel="stylesheet" href="email_form.css" type="text/css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -97,6 +14,124 @@ Thank you for contacting us. We will be in touch with you very soon.
 
   <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
   <style>
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-font-smoothing:antialiased;
+	-moz-font-smoothing:antialiased;
+	-o-font-smoothing:antialiased;
+	font-smoothing:antialiased;
+	text-rendering:optimizeLegibility;
+}
+
+body {
+	font-family:"Open Sans", Helvetica, Arial, sans-serif;
+	font-weight:300;
+	font-size: 12px;
+	line-height:30px;
+	color:#777;
+	background:#0CF;
+}
+
+/* .container {
+	max-width:400px;
+	width:100%;
+	margin:0 auto;
+	position:relative;
+} */
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+
+#contact {
+	background:#F9F9F9;
+	padding:25px;
+	margin:50px 0;
+}
+
+#contact h3 {
+	color: #F96;
+	display: block;
+	font-size: 30px;
+	font-weight: 400;
+}
+
+#contact h4 {
+	margin:5px 0 15px;
+	display:block;
+	font-size:13px;
+}
+
+fieldset {
+	border: medium none !important;
+	margin: 0 0 10px;
+	min-width: 100%;
+	padding: 0;
+	width: 100%;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
+	width:100%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+}
+
+#contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #AAA;
+}
+
+#contact textarea {
+	height:100px;
+	max-width:100%;
+  resize:none;
+}
+
+#contact button[type="submit"] {
+	cursor:pointer;
+	width:100%;
+	border:none;
+	background:#0CF;
+	color:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+	font-size:15px;
+}
+
+#contact button[type="submit"]:hover {
+	background:#09C;
+	-webkit-transition:background 0.3s ease-in-out;
+	-moz-transition:background 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+#contact input:focus, #contact textarea:focus {
+	outline:0;
+	border:1px solid #999;
+}
+::-webkit-input-placeholder {
+ color:#888;
+}
+:-moz-placeholder {
+ color:#888;
+}
+::-moz-placeholder {
+ color:#888;
+}
+:-ms-input-placeholder {
+ color:#888;
+}
     header {
 
       background: url(Spark_images/Logo/sparkNavlogo.png);
@@ -432,59 +467,15 @@ Thank you for contacting us. We will be in touch with you very soon.
 
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
 
-<form name="contactform" method="post" action="send_form_email.php">
-<table width="450px">
-<tr>
- <td valign="top">
-  <label for="first_name">First Name *</label>
- </td>
- <td valign="top">
-  <input  type="text" name="first_name" maxlength="50" size="30">
- </td>
-</tr>
-<tr>
- <td valign="top">
-  <label for="email">Email Address *</label>
- </td>
- <td valign="top">
-  <input  type="text" name="email" maxlength="80" size="30">
- </td>
-</tr>
-<tr>
- <td valign="top">
-  <label for="telephone">Telephone Number</label>
- </td>
- <td valign="top">
-  <input  type="text" name="telephone" maxlength="30" size="30">
- </td>
-</tr>
-<tr>
- <td valign="top">
-  <label for="comments">Comments *</label>
- </td>
- <td valign="top">
-  <textarea  name="comments" maxlength="1000" cols="25" rows="6"></textarea>
- </td>
-</tr>
-<tr>
- <td colspan="2" style="text-align:center">
-  <input type="submit" value="Submit">   <a href="">Email Form</a>
- </td>
-</tr>
-</table>
-</form>
-
-
-  
 
      <!-- //////////////////////////////////////////   parallax  //////////////////////////////////////////   -->
 
 
-      <div class="parallax-container logged-out" style="display: none;">
+      <!-- <div class="parallax-container logged-out" style="display: none;">
         <div class="class parallax">
           <img src="./Spark_images/Greywash Membrane -SPe/2.jpg" class="responsive-img">
         </div>
-      </div>
+      </div> -->
 
       <!-- //////////////////////////////////////////   services / tabs  //////////////////////////////////////////   -->
       <!-- //////////////////////////////////////////  Contact us  //////////////////////////////////////////   -->
@@ -515,76 +506,36 @@ Thank you for contacting us. We will be in touch with you very soon.
             <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
             <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
             <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
-
+            <?php include(email_process.php);?>
+         
           <!-- Navbar -->
           <div class="container col s12 l8">
-
-            <!-- Content here -->
-            <!-- <div class="col s12 l6 offset-l2"> -->
-            <div class="row">
-              <div class="" style="background-color: white; border-radius: 15px;">
-
-                <!-- contact form -->
-
-                <div class="col-10">
-                  <div class="container px-1 py-1 mt-1 mb-1"
-                    style="border: darkgrey; border-style: solid; border-width: 4px; border-radius: 15px; width: 100%; margin-bottom: 10px;">
-
-                    <div class="form-group">
-                      <form class="px-4 py-3">
-
-
-                        <!-- Form header -->
-                        <h1 class="display-4 text-left padding-bottom-1 " style="color:#4aaaa5; padding-left: 5px;">  Contactanos</h1>
-                        <!-- dividing line -->
-                        <hr class="my-4" style="height: 1px ;">
-
-                        <!-- First Name input -->
-                        <div class="form-group">
-                          <label for="Nombre"></label>
-                          <input type="text" name="nombre" class="form-control" id="exampleFormControlInput1"
-                            placeholder="   Nombre..">
-                        </div>
-
-                        <!-- Apellido Paterno input -->
-                        <div class="form-group">
-                          <label for="telefono"></label>
-                          <input type="text" name="telefono" class="form-control" id="exampleFormControlInput1"
-                            placeholder="   Telefono..">
-                        </div>
-
-                        <!-- Email input -->
-                        <div class="form-group">
-
-
-                            <!-- code from tutorial -->
-                        <form name="contactform" method="post" action="send_form_email.php">
-
-
-                          <label for="exampleFormControlInput1"></label>
-                          <input type="text" name="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="   nombre@ejemplo.com">
-                        </div>
-
-                        <br>
-
-                        <!-- Email Subject -->
-                        <div class="form-group">
-                         
-                          <label for="exampleFormControlTextarea1" style="padding-left: 12px;">  Mensaje</label>
-                          
-                          <textarea class="form-control" id="exampleFormControlTextarea1"
-                            placeholder="   Escribe aqui tu mensaje.." rows="20"></textarea>
-
-                          <div style="padding-top: 8px; padding-left:12px;">
-                            <button class="btn waves-effect waves-light" type="submit" name="action" value="Submit" style="padding-top: 4px;">Enviar
-                            <i class="material-icons right">send</i>
-                              </button>
-                            </div>
-                          <!-- Submit button -->
-                          <!-- <input type="submit" class="mt2 mb-2" value="Submit">
-                        </div> -->
-                      </form>
+          
+  <form id="contact" action="" method="post">
+    <h3>Quick Contact</h3>
+    <h4>Contact us today, and get reply with in 24 hours!</h4>
+    <fieldset>
+      <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address" type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Web Site starts with http://" type="url" tabindex="4" required>
+    </fieldset>
+    <fieldset>
+      <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+ 
+  
+</div>
                     </div>
                   </div>
                   <!-- container3 form closing div -->
