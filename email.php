@@ -1,3 +1,41 @@
+<?php
+ 
+ if(isset($_POST['submit'])){
+
+require 'phpmailer/PHPmailerAutoload.php';
+$mail = new PHPMailer;
+
+$mail->isSMTP();
+$mail->Host='smtp.gmail.com';
+$mail->port=587;
+$mail->SMTPAuth=true;
+$mail->SMTPSecure='tls';
+$mail->Username='covacharocker@gmail.com';
+$mail->Password='Covacha1214';
+
+$mail->setFrom('txivo@yahoo.com','txivo@yahoo.com');
+$mail->addAddress('txivo@yahoo.com');
+$mail->addReplyTo($_POST['email'],$_POST['name']);
+
+$mail->isHTML(true);
+$mail->Subject='Form Submission:  '.$_POST['subject'];
+$mail->Body='<h1 align=center>Name : '.$_POST['name'].'<br>Phone number: '.$_POST['phone'].'<br>Email: '.$_POST['email'].'<br>Message: '.$_POST[message].'</h1>';
+
+if(!$mail->send()){
+  $result="Something went wrong. Please rty again!";
+}
+else{
+  $result="Thank you ".$_POST['name']."For contacting us, we'll get back to you soon!";
+}
+
+ }
+ 
+ 
+ ?>
+
+
+
+
 <html lang="en">
 
 <head>
@@ -506,36 +544,134 @@ fieldset {
             <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
             <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
             <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
-            <?php include(email_process.php);?>
-         
-          <!-- Navbar -->
-          <div class="container col s12 l8">
-          
-  <form id="contact" action="" method="post">
-    <h3>Quick Contact</h3>
-    <h4>Contact us today, and get reply with in 24 hours!</h4>
+            <!-- <div class="container">  
+  
+    
     <fieldset>
-      <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+      <input placeholder="Your name" type="text" tabindex="1" name="name" autofocus>
+      
     </fieldset>
+    
     <fieldset>
-      <input placeholder="Your Email Address" type="email" tabindex="2" required>
+      <input placeholder="Your Email Address" type="email" tabindex="2" name="email">
+      
     </fieldset>
+    
     <fieldset>
-      <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
+      <input placeholder="Your Phone Number" type="text" tabindex="3" name="phone">
+      
     </fieldset>
+    
     <fieldset>
-      <input placeholder="Your Web Site starts with http://" type="url" tabindex="4" required>
+      <input placeholder="Enter subject" type="subject" tabindex="4" name="subject" >
+      
     </fieldset>
+    
     <fieldset>
-      <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+      <textarea placeholder="Type your Message Here...." type="text" name="message" tabindex="5" ></textarea>
+      
     </fieldset>
+   
     <fieldset>
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
     </fieldset>
+
   </form>
  
   
-</div>
+</div> -->
+
+        <!-- closing tags -->
+        <!-- </div>
+
+      </section> -->
+
+          <!-- Navbar -->
+          <div class="container col s12 l8">
+          <form id="contact" action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
+    
+            <!-- Content here -->
+            <div class="col s12 l6 offset-l2">
+            <div class="row">
+              <div class="" style="background-color: white; border-radius: 15px;">
+
+                <!-- contact form -->
+
+                <div class="col-10">
+                  <div class="container px-1 py-1 mt-1 mb-1"
+                    style="border: darkgrey; border-style: solid; border-width: 4px; border-radius: 15px; width: 100%; margin-bottom: 10px;">
+
+                    <div class="form-group">
+                      <form class="px-4 py-3">
+
+
+                        <!-- Form header -->
+                        <h1 class="display-4 text-left padding-bottom-1 " style="color:#4aaaa5; padding-left: 5px;">  Contactanos</h1>
+                        <h4>Contact us today, and get reply with in 24 hours!</h4>
+                        <!-- dividing line -->
+                        <hr class="my-4" style="height: 1px ;">
+
+                        <!-- First Name input -->
+                        <div class="form-group">
+                          <label for="name"></label>
+                          <input type="text" name="name" class="form-control" id="exampleFormControlInput1"
+                          tabindex="1" placeholder="   Nombre.." >
+                        </div>
+
+                        <!-- Email input -->
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1"></label>
+                          <input type="text" name="email" class="form-control" id="exampleFormControlInput1"
+                          tabindex="2"  placeholder="   nombre@ejemplo.com">
+                        </div>
+
+                        <!-- Apellido Paterno input -->
+                        <div class="form-group">
+                          <label for="telefono"></label>
+                          <input type="text" name="phone" class="form-control" id="exampleFormControlInput1"
+                          tabindex="3" placeholder="   Telefono..">
+                        </div>
+
+                        <!-- subject input -->
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1"></label>
+                          <input type="text" name="subject" class="form-control" id="exampleFormControlInput1"
+                          tabindex="4"  placeholder="   Subject...">
+                        </div>
+
+                        <!-- <br> -->
+
+                        <!-- Email Subject -->
+                        <div class="form-group">
+                         
+                          <label for="exampleFormControlTextarea1" style="padding-left: 12px;">  Mensaje</label>
+                          
+                          <textarea class="form-control" id="exampleFormControlTextarea1"
+                            placeholder="   Escribe aqui tu mensaje.."  type="text" name="message" tabindex="5" rows="20">
+                          
+                            
+      
+                          
+                          </textarea>
+
+                          <div style="padding-top: 8px; padding-left:12px;">
+                            <!-- <button class="btn waves-effect waves-light" type="submit" name="submit" 
+
+                            id="contact-submit" data-submit="...Sending"
+
+                            value="submit" style="padding-top: 4px;">Enviar
+                            <i class="material-icons right">send</i>
+                              </button> -->
+
+
+                              <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+                            </div>
+                          <!-- Submit button -->
+                          <!-- <input type="submit" class="mt2 mb-2" value="Submit"> -->
+                        </div>
+                      </form>
                     </div>
                   </div>
                   <!-- container3 form closing div -->
@@ -557,6 +693,19 @@ fieldset {
         </div>
 
         </div>
+
+
+
+        <!-- tabs Editing content -->
+        <!-- <div class="col s12" id="editing">
+      <p class="flow-text indigo-text text-darken-4">Empleos</p>
+      <p>
+        Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
+        Aliquam vehicula tortor erat, non maximus ipsum ultricies in.
+      </p>
+    </div> -->
+
+
 
         <!-- closing tags -->
         </div>
