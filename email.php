@@ -13,7 +13,7 @@ $mail->SMTPSecure='tls';
 $mail->Username='covacharocker@gmail.com';
 $mail->Password='Covacha1214';
 
-$mail->setFrom('txivo@yahoo.com','txivo@yahoo.com');
+$mail->setFrom('txivo@yahoo.com');
 $mail->addAddress('txivo@yahoo.com');
 $mail->addReplyTo($_POST['email'],$_POST['name']);
 
@@ -591,7 +591,7 @@ fieldset {
           <form id="contact" action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
     
             <!-- Content here -->
-            <div class="col s12 l6 offset-l2">
+            
             <div class="row">
               <div class="" style="background-color: white; border-radius: 15px;">
 
@@ -606,7 +606,7 @@ fieldset {
 
 
                         <!-- Form header -->
-                        <h1 class="display-4 text-left padding-bottom-1 " style="color:#4aaaa5; padding-left: 5px;">  Contactanos</h1>
+                        <h1 class="display-4 text-left padding-bottom-1 padding-left-1" style="color:#4aaaa5; padding-left: 5px;">  Contactanos</h1>
                         <h4>Contact us today, and get reply with in 24 hours!</h4>
                         <!-- dividing line -->
                         <hr class="my-4" style="height: 1px ;">
@@ -614,7 +614,7 @@ fieldset {
                         <!-- First Name input -->
                         <div class="form-group">
                           <label for="name"></label>
-                          <input type="text" name="name" class="form-control" id="exampleFormControlInput1"
+                          <input type="text" name="name"  id="exampleFormControlInput1"
                           tabindex="1" placeholder="   Nombre.." >
                         </div>
 
@@ -646,12 +646,8 @@ fieldset {
                          
                           <label for="exampleFormControlTextarea1" style="padding-left: 12px;">  Mensaje</label>
                           
-                          <textarea class="form-control" id="exampleFormControlTextarea1"
+                          <textarea class="form-control" 
                             placeholder="   Escribe aqui tu mensaje.."  type="text" name="message" tabindex="5" rows="20">
-                          
-                            
-      
-                          
                           </textarea>
 
                           <div style="padding-top: 8px; padding-left:12px;">
