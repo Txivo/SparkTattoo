@@ -1,20 +1,20 @@
 <?php
- 
+
  if(isset($_POST['submit'])){
 
 require 'phpmailer/PHPmailerAutoload.php';
 $mail = new PHPMailer;
 
 $mail->isSMTP();
-$mail->Host='smtp.gmail.com';
-$mail->port=587;
+$mail->Host='mail.parallaxsolutions.com.mx';
+$mail->port=465;
 $mail->SMTPAuth=true;
 $mail->SMTPSecure='tls';
-$mail->Username='covacharocker@gmail.com';
-$mail->Password='Covacha1214';
+$mail->Username='development@parallaxsolutions.com.mx';
+$mail->Password='Nadir1214';
 
-$mail->setFrom('txivo@yahoo.com');
-$mail->addAddress('txivo@yahoo.com');
+$mail->setFrom('email');
+$mail->addAddress('email');
 $mail->addReplyTo($_POST['email'],$_POST['name']);
 
 $mail->isHTML(true);
@@ -22,7 +22,7 @@ $mail->Subject='Form Submission:  '.$_POST['subject'];
 $mail->Body='<h1 align=center>Name : '.$_POST['name'].'<br>Phone number: '.$_POST['phone'].'<br>Email: '.$_POST['email'].'<br>Message: '.$_POST[message].'</h1>';
 
 if(!$mail->send()){
-  $result="Something went wrong. Please rty again!";
+  $result="Something went wrong. Please try again!";
 }
 else{
   $result="Thank you ".$_POST['name']."For contacting us, we'll get back to you soon!";
@@ -84,13 +84,9 @@ body {
 	position:relative;
 } */
 
-#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea,  { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
 
-#contact {
-	background:#F9F9F9;
-	padding:25px;
-	margin:50px 0;
-}
+
 
 #contact h3 {
 	color: #F96;
@@ -99,27 +95,10 @@ body {
 	font-weight: 400;
 }
 
-#contact h4 {
-	margin:5px 0 15px;
-	display:block;
-	font-size:13px;
-}
 
-fieldset {
-	border: medium none !important;
-	margin: 0 0 10px;
-	min-width: 100%;
-	padding: 0;
-	width: 100%;
-}
 
-#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
-	width:100%;
-	border:1px solid #CCC;
-	background:#FFF;
-	margin:0 0 5px;
-	padding:10px;
-}
+
+
 
 #contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
 	-webkit-transition:border-color 0.3s ease-in-out;
@@ -544,47 +523,7 @@ fieldset {
             <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
             <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
             <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
-            <!-- <div class="container">  
-  
-    
-    <fieldset>
-      <input placeholder="Your name" type="text" tabindex="1" name="name" autofocus>
-      
-    </fieldset>
-    
-    <fieldset>
-      <input placeholder="Your Email Address" type="email" tabindex="2" name="email">
-      
-    </fieldset>
-    
-    <fieldset>
-      <input placeholder="Your Phone Number" type="text" tabindex="3" name="phone">
-      
-    </fieldset>
-    
-    <fieldset>
-      <input placeholder="Enter subject" type="subject" tabindex="4" name="subject" >
-      
-    </fieldset>
-    
-    <fieldset>
-      <textarea placeholder="Type your Message Here...." type="text" name="message" tabindex="5" ></textarea>
-      
-    </fieldset>
-   
-    <fieldset>
-      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-    </fieldset>
-
-  </form>
- 
-  
-</div> -->
-
-        <!-- closing tags -->
-        <!-- </div>
-
-      </section> -->
+     
 
           <!-- Navbar -->
           <div class="container col s12 l8">
@@ -614,7 +553,7 @@ fieldset {
                         <!-- First Name input -->
                         <div class="form-group">
                           <label for="name"></label>
-                          <input type="text" name="name"  id="exampleFormControlInput1"
+                          <input type="text" name="name" class="form-control" id="exampleFormControlInput1"
                           tabindex="1" placeholder="   Nombre.." >
                         </div>
 
@@ -649,20 +588,13 @@ fieldset {
                           <textarea class="form-control" 
                             placeholder="   Escribe aqui tu mensaje.."  type="text" name="message" tabindex="5" rows="20">
                           </textarea>
-
                           <div style="padding-top: 8px; padding-left:12px;">
-                            <!-- <button class="btn waves-effect waves-light" type="submit" name="submit" 
-
-                            id="contact-submit" data-submit="...Sending"
-
-                            value="submit" style="padding-top: 4px;">Enviar
-                            <i class="material-icons right">send</i>
-                              </button> -->
+                        
 
 
                               <fieldset>
-      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-    </fieldset>
+                              <button name="submit" value= "submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                              </fieldset>
                             </div>
                           <!-- Submit button -->
                           <!-- <input type="submit" class="mt2 mb-2" value="Submit"> -->
@@ -947,6 +879,8 @@ fieldset {
         const auth = firebase.auth();
         const db = firebase.firestore();
         const functions = firebase.functions();
+
+       
 
         // update firestore settings
         db.settings({ timestampsInSnapshots: true });
