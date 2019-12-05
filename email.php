@@ -6,12 +6,12 @@ require 'phpmailer/PHPmailerAutoload.php';
 $mail = new PHPMailer;
 
 $mail->isSMTP();
-$mail->Host='mail.parallaxsolutions.com.mx';
+$mail->Host='';
 $mail->port=465;
 $mail->SMTPAuth=true;
 $mail->SMTPSecure='tls';
-$mail->Username='development@parallaxsolutions.com.mx';
-$mail->Password='Nadir1214';
+$mail->Username='';
+$mail->Password='';
 
 $mail->setFrom('email');
 $mail->addAddress('email');
