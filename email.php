@@ -11,7 +11,7 @@ $mail->port=587;
 $mail->SMTPAuth=true;
 $mail->SMTPSecure='tls';
 $mail->Username='parsolint@gmail.com';
-$mail->Password='';
+$mail->Password='Parallax_19';
 
 $mail->setFrom($_POST['email'],$_POST['name']);
 $mail->addAddress($_POST['email']);
@@ -21,20 +21,22 @@ $mail->isHTML(true);
 $mail->Subject='Form Submission:  '.$_POST['subject'];
 $mail->Body='<h1 align=center>Name : '.$_POST['name'].'<br>Phone number: '.$_POST['phone'].'<br>Email: '.$_POST['email'].'<br>Message: '.$_POST[message].'</h1>';
 
+
 if(!$mail->send()){
   $result="Something went wrong. Please try again!";
 }
 else{
   $result="Thank you ".$_POST['name']."For contacting us, we'll get back to you soon!";
+
+  // non resubmit form code 
+  header("location:email.php");
+exit;
 }
 
  }
  
  
  ?>
-
-
-
 
 <html lang="en">
 
@@ -77,22 +79,8 @@ body {
 	background:#0CF;
 }
 
-/* .container {
-	max-width:400px;
-	width:100%;
-	margin:0 auto;
-	position:relative;
-} */
 
 #contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
-
-
-
-
-
-
-
-
 
 
 #contact button[type="submit"] {
@@ -105,7 +93,6 @@ body {
 	padding:10px;
 	font-size:15px;
 }
-
 
 
 #contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
@@ -172,38 +159,7 @@ body {
             <a href="index.html" class="white-text modal-trigger" data-target="modal-home">Español</a>
           </li>
 
-          <!-- <li class="logged-in">
-            <a href="speech.php" class="grey-text" id="navbar">Speech</a>
-          </li>
-
-          <li class="logged-in">
-            <a href="solapp.php" class="grey-text" id="solapp">Solicitud de apoyo</a>
-          </li> -->
-
-          <!-- <li class="logged-in">
-                                    <a href="registro.php" class="grey-text" id="navbar">Registro</a>
-                                  </li> -->
-
-          <!-- <li class="logged-in" style="display: none;">
-                      <a href="#" class="grey-text modal-trigger" data-target="modal-account">Detalles de usuario</a>
-                    </li> -->
-
-          <!-- <li class="logged-in" style="display: none;">
-                        <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Ingresar caso</a>
-                      </li> -->
-
-          <!-- <li class="logged-in " style="display: none;">
-            <a href="#" class="grey-text" id="logout">Cerrar Sesión</a>
-          </li>
-  
-          <li class="logged-out" style="display: none;">
-            <a href="#" class="grey-text modal-trigger" data-target="modal-login">Iniciar Sesión</a>
-          </li>
-  
-          <li class="logged-out" style="display: none;">
-            <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Registrarse</a>
-          </li> -->
-
+         
         </ul>
     </div>
   </nav>
@@ -212,6 +168,7 @@ body {
 
   <ul class="sidenav" id="mobile-demo">
       <!-- <li><a href="sass.html">Sass</a></li> -->
+      
       <li><a href="english.html">english</a></li>
       <li><a href="index.html">Español</a></li>
       <!-- <li><a href="mobile.html">Mobile</a></li> -->
@@ -278,36 +235,7 @@ body {
   </form>
   <br><br>
   <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
-  <!-- client info goes in here
-         SIGN UP MODAL -->
-  <div id="modal-signup" class="modal">
-    <div class="modal-content">
-      <h4>Registrarse</h4><br />
-      <form id="signup-form">
-        <div class="input-field">
-          <input type="email" id="signup-email" required />
-          <label for="signup-email">Correo Electrónico</label>
-        </div>
-        <div class="input-field">
-          <input type="password" id="signup-password" required />
-          <label for="signup-password">Elegir Contraseña</label>
-        </div>
-
-        <div class="input-field">
-          <input type="password" id="signup-verify" required />
-          <label for="signup-verify">Verificar Contraseña</label>
-        </div>
-
-        <div class="input-field">
-          <input type="text" id="signup-bio" required />
-          <label for="signup-bio">Nombre de usuario</label>
-        </div>
-
-        <button class="btn yellow darken-2 z-depth-0">Registrarse</button>
-        <p class="error pink-text center-align"></p>
-      </form>
-    </div>
-  </div>
+  
 
 <!--  //////////////////////////////////////////  top middle photo //////////////////////////////////////////  -->
   <section class="section logged-out" style="display: none;" id="photo's">
@@ -334,7 +262,7 @@ body {
             class="responsive-img materialboxed logged-out">
         </div>
         <div class="col 12 l6 offset-l1">
-          <a href="spd.html" </a> <h2 class="light grey-text text-lighten-3">Cartuchos de Membrana True Color-SPD</h2>
+          <a href="spd.html" </a> <h2 class="white-text text-darken-4">Cartuchos de Membrana True Color-SPD</h2>
             <p class="grey-text lighten-3">Sed ut leo nunc. Nulla aliquam eros ex, eget semper nisi ornare vel.
               Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
               Aliquam vehicula tortor erat, non maximus ipsum ultricies in.
@@ -378,10 +306,6 @@ body {
           </a>
         </div>
       </div>
-
-
-
-
 
       <!-- ////////// fourth ROW ////////// -->
       <!-- beware the size are: "col L4, L7, L6, L5" NOT!!!!!! "col 14, 17, 16 or 15" -->
@@ -442,18 +366,6 @@ body {
         <img src="./Spark_images/Greywash Membrane -SPe/1.jpg" class="responsive-img">
       </div>
     </div>
-
-<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
-
-
-     <!-- //////////////////////////////////////////   parallax  //////////////////////////////////////////   -->
-
-
-      <!-- <div class="parallax-container logged-out" style="display: none;">
-        <div class="class parallax">
-          <img src="./Spark_images/Greywash Membrane -SPe/2.jpg" class="responsive-img">
-        </div>
-      </div> -->
 
       <!-- //////////////////////////////////////////   services / tabs  //////////////////////////////////////////   -->
       <!-- //////////////////////////////////////////  Contact us  //////////////////////////////////////////   -->
@@ -584,18 +496,6 @@ body {
         </div>
 
 
-
-        <!-- tabs Editing content -->
-        <!-- <div class="col s12" id="editing">
-      <p class="flow-text indigo-text text-darken-4">Empleos</p>
-      <p>
-        Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
-        Aliquam vehicula tortor erat, non maximus ipsum ultricies in.
-      </p>
-    </div> -->
-
-
-
         <!-- closing tags -->
         </div>
 
@@ -624,15 +524,10 @@ body {
             <h2 class="white-text text-darken-4">Contáctanos</h2>
             <p class="white-text text-darken-4">Ponemos a su dispoción nuestra información de contacto:</p>
 
-            <!-- <h4 class="white-text text-darken-4">Direccion <i class="material-icons prefix">location_on</i></h4>
-            <p class="white-text "> Padre Mier #1082 colonia centro, Monterrey, N.L.
-            64000</p> -->
-
 
             <h5 class="white-text text-darken-4">Horarios de Atención <i class="material-icons prefix">access_time</i></h5>
             <p class="white-text "> Lunes a Viernes de 10:00 am a 6:00 pm.
             </p>
-
 
 
             <h5 class="white-text text-darken-4">(725)212-9219 <i class="material-icons prefix">call</i></h5>
@@ -650,13 +545,6 @@ body {
                 <div class="card-body">
                   <!-- <h3 class="card-title"><u>Google Maps</u></h3> -->
 
-                  <!-- Google maps Api -->
-
-                  <!-- <div id="googleMap" style="width:100%;height:400px;"></div> -->
-                  <!-- <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.1440342188534!2d-100.30741255034206!3d25.66651968359991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662be2d2bf89b13%3A0xa6068c6af7da87d2!2sCalle+Padre+Mier+1082%2C+Barrio+Antiguo%2C+Centro%2C+64000+Monterrey%2C+N.L.!5e0!3m2!1sen!2smx!4v1544803420952"
-                    frameborder="0" style="border:0; width:100%;height:400px;" allowfullscreen></iframe> -->
-
                     <img src="./Spark_images/Logo/01 Spark brand1.jpeg" class="responsive-img">
 
                 </div>
@@ -664,15 +552,6 @@ body {
 
             </form>
           </div>
-
-          <!-- //////////////////////////////////////////   parallax  //////////////////////////////////////////   -->
-
-
-          <!-- <div class="parallax-container logged-out" style="display: none;">
-        <div class="class parallax">
-          <img src="." class="responsive-img">
-        </div>
-      </div> -->
 
           <!-- closing tags -->
         </div>
@@ -687,15 +566,6 @@ body {
           <img src="./Spark_images/Greywash Membrane -SPe/2.jpg" class="responsive-img">
         </div>
       </div>
-
-
-      <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
-    
-
-
-      <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
-
-    
 
 
       <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
@@ -827,10 +697,10 @@ body {
       <script>
         // Initialize Firebase
         var config = {
-      apiKey: "AIzaSyD5ZR8TtaPXdKEvEDHFschoUMz4xMkjpWQ",
-      authDomain: "deleiphone-b0f98.firebaseapp.com",
-      databaseURL: "https://deleiphone-b0f98.firebaseio.com",
-      projectId: "deleiphone-b0f98"
+      apiKey: "##########",
+      authDomain: "",
+      databaseURL: "",
+      projectId: "############"
     };
 
         firebase.initializeApp(config);
