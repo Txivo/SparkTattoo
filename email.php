@@ -6,15 +6,15 @@ require 'phpmailer/PHPmailerAutoload.php';
 $mail = new PHPMailer;
 
 $mail->isSMTP();
-$mail->Host='';
-$mail->port=465;
+$mail->Host='smtp.gmail.com';
+$mail->port=587;
 $mail->SMTPAuth=true;
 $mail->SMTPSecure='tls';
-$mail->Username='';
+$mail->Username='parsolint@gmail.com';
 $mail->Password='';
 
-$mail->setFrom('email');
-$mail->addAddress('email');
+$mail->setFrom($_POST['email'],$_POST['name']);
+$mail->addAddress($_POST['email']);
 $mail->addReplyTo($_POST['email'],$_POST['name']);
 
 $mail->isHTML(true);
@@ -84,34 +84,16 @@ body {
 	position:relative;
 } */
 
-#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea,  { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
-
-
-
-#contact h3 {
-	color: #F96;
-	display: block;
-	font-size: 30px;
-	font-weight: 400;
-}
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
 
 
 
 
 
 
-#contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
-	-webkit-transition:border-color 0.3s ease-in-out;
-	-moz-transition:border-color 0.3s ease-in-out;
-	transition:border-color 0.3s ease-in-out;
-	border:1px solid #AAA;
-}
 
-#contact textarea {
-	height:100px;
-	max-width:100%;
-  resize:none;
-}
+
+
 
 #contact button[type="submit"] {
 	cursor:pointer;
@@ -124,31 +106,10 @@ body {
 	font-size:15px;
 }
 
-#contact button[type="submit"]:hover {
-	background:#09C;
-	-webkit-transition:background 0.3s ease-in-out;
-	-moz-transition:background 0.3s ease-in-out;
-	transition:background-color 0.3s ease-in-out;
-}
+
 
 #contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
 
-#contact input:focus, #contact textarea:focus {
-	outline:0;
-	border:1px solid #999;
-}
-::-webkit-input-placeholder {
- color:#888;
-}
-:-moz-placeholder {
- color:#888;
-}
-::-moz-placeholder {
- color:#888;
-}
-:-ms-input-placeholder {
- color:#888;
-}
     header {
 
       background: url(Spark_images/Logo/sparkNavlogo.png);
