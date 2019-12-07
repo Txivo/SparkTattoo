@@ -398,7 +398,7 @@ body {
             <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
      
 
-          <!-- Navbar -->
+          <!-- contact form-->
           <div class="container col s12 l8">
           <form id="contact" action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
     
@@ -419,7 +419,7 @@ body {
 
                         <!-- Form header -->
                         <h1 class="display-4 text-left padding-bottom-1 padding-left-1" style="color:#4aaaa5; padding-left: 5px;">  Contactanos</h1>
-                        <h4>Contact us today, and get reply with in 24 hours!</h4>
+                        <h4>Contactanos hoy, y le les responderemos en 24 horas!</h4>
                         <!-- dividing line -->
                         <hr class="my-4" style="height: 1px ;">
 
@@ -466,7 +466,7 @@ body {
 
 
                               <fieldset>
-                              <button name="submit" value= "submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                              <button name="submit" value= "submit" type="submit" id="contact-submit" data-submit="...Sending">Enviar</button>
                               </fieldset>
                             </div>
                           <!-- Submit button -->

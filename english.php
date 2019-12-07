@@ -1,4 +1,42 @@
+<?php
 
+ if(isset($_POST['submit'])){
+
+require 'phpmailer/PHPmailerAutoload.php';
+$mail = new PHPMailer;
+
+$mail->isSMTP();
+$mail->Host='smtp.gmail.com';
+$mail->port=587;
+$mail->SMTPAuth=true;
+$mail->SMTPSecure='tls';
+$mail->Username='parsolint@gmail.com';
+$mail->Password='Parallax_19';
+
+$mail->setFrom($_POST['email'],$_POST['name']);
+$mail->addAddress($_POST['email']);
+$mail->addReplyTo($_POST['email'],$_POST['name']);
+
+$mail->isHTML(true);
+$mail->Subject='Form Submission:  '.$_POST['subject'];
+$mail->Body='<h1 align=center>Name : '.$_POST['name'].'<br>Phone number: '.$_POST['phone'].'<br>Email: '.$_POST['email'].'<br>Message: '.$_POST[message].'</h1>';
+
+
+if(!$mail->send()){
+  $result="Something went wrong. Please try again!";
+}
+else{
+  $result="Thank you ".$_POST['name']."For contacting us, we'll get back to you soon!";
+
+  // non resubmit form code 
+  header("location:email.php");
+exit;
+}
+
+ }
+ 
+ 
+ ?>
 
 <html lang="en">
 
@@ -70,44 +108,14 @@
           </li>
 
           <li class="logged-out" style="display: none;">
-            <a href="english.html" class="white-text modal-trigger" data-target="modal-home">English</a>
+            <a href="english.php" class="white-text modal-trigger" data-target="modal-home">English</a>
           </li>
 
           <li class="logged-out" style="display: none;">
-            <a href="index.html" class="white-text modal-trigger" data-target="modal-home">Español</a>
+            <a href="index.php" class="white-text modal-trigger" data-target="modal-home">Español</a>
           </li>
 
-          <!-- <li class="logged-in">
-            <a href="speech.php" class="grey-text" id="navbar">Speech</a>
-          </li>
-
-          <li class="logged-in">
-            <a href="solapp.php" class="grey-text" id="solapp">Solicitud de apoyo</a>
-          </li> -->
-
-          <!-- <li class="logged-in">
-                                    <a href="registro.php" class="grey-text" id="navbar">Registro</a>
-                                  </li> -->
-
-          <!-- <li class="logged-in" style="display: none;">
-                      <a href="#" class="grey-text modal-trigger" data-target="modal-account">Detalles de usuario</a>
-                    </li> -->
-
-          <!-- <li class="logged-in" style="display: none;">
-                        <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Ingresar caso</a>
-                      </li> -->
-
-          <!-- <li class="logged-in " style="display: none;">
-            <a href="#" class="grey-text" id="logout">Cerrar Sesión</a>
-          </li>
-  
-          <li class="logged-out" style="display: none;">
-            <a href="#" class="grey-text modal-trigger" data-target="modal-login">Iniciar Sesión</a>
-          </li>
-  
-          <li class="logged-out" style="display: none;">
-            <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Registrarse</a>
-          </li> -->
+       
 
         </ul>
     </div>
@@ -116,10 +124,10 @@
   <!-- ////////////////////////////////////////  Movil Side navbar  ////////////////////////////////////////////// -->
 
   <ul class="sidenav" id="mobile-demo">
-      <!-- <li><a href="sass.html">Sass</a></li> -->
-      <li><a href="english.html">English</a></li>
-      <li><a href="index.html">Español</a></li>
-      <!-- <li><a href="mobile.html">Mobile</a></li> -->
+      <!-- <li><a href="sass.php">Sass</a></li> -->
+      <li><a href="english.php">English</a></li>
+      <li><a href="index.php">Español</a></li>
+      <!-- <li><a href="mobile.php">Mobile</a></li> -->
     </ul>
 
 
@@ -239,7 +247,7 @@
             class="responsive-img materialboxed logged-out">
         </div>
         <div class="col 12 l6 offset-l1">
-          <a href="spdenglish.html" </a> <h2 class="light grey-text text-lighten-3">True Color Membrane Cartriges-SPD</h2>
+          <a href="spdenglish.php" </a> <h2 class="light grey-text text-lighten-3">True Color Membrane Cartriges-SPD</h2>
             <p class="grey-text lighten-3">Sed ut leo nunc. Nulla aliquam eros ex, eget semper nisi ornare vel.
               Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
               Aliquam vehicula tortor erat, non maximus ipsum ultricies in.
@@ -257,7 +265,7 @@
           <img src="./Spark_images/TrueColor+ Cartriges-STP-T/Pic2.jpg" alt="" class="responsive-img materialboxed">
         </div>
         <div class="col s12 l6 pull-l5 right-align offset-l1">
-          <a href="stpenglish.html" </a> <h2 class="white-text text-darken-4">True color+ Cartriges-STP-T</h2>
+          <a href="stpenglish.php" </a> <h2 class="white-text text-darken-4">True color+ Cartriges-STP-T</h2>
             <p class="grey-text lighten-3">Sed ut leo nunc. Nulla aliquam eros ex, eget semper nisi ornare vel.
               Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
               Aliquam vehicula tortor erat, non maximus ipsum ultricies in.
@@ -274,7 +282,7 @@
             alt="" class="responsive-img materialboxed">
         </div>
         <div class="col s12 l6 offset-l1">
-          <a href="axisenglish.html" </a> <h2 class="white-text text-darken-4">New Sparks Axis Precise Cartriges-SPT</h2>
+          <a href="axisenglish.php" </a> <h2 class="white-text text-darken-4">New Sparks Axis Precise Cartriges-SPT</h2>
             <p class="grey-text lighten-3">Sed ut leo nunc. Nulla aliquam eros ex, eget semper nisi ornare vel.
               Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
               Aliquam vehicula tortor erat, non maximus ipsum ultricies in.
@@ -296,7 +304,7 @@
             class="responsive-img materialboxed">
         </div>
         <div class="col s12 l6 pull-l5 right-align offset-l1">
-          <a href="greywash english.html" </a> <h2 class="white-text text-darken-4">Greywash Membrane SPe</h2>
+          <a href="greywash english.php" </a> <h2 class="white-text text-darken-4">Greywash Membrane SPe</h2>
             <p class="grey-text lighten-3">Sed ut leo nunc. Nulla aliquam eros ex, eget semper nisi ornare vel.
               Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
               Aliquam vehicula tortor erat, non maximus ipsum ultricies in.
@@ -312,7 +320,7 @@
           <img src="./Spark_images/Needles/needles Thumb.jpeg" alt="" class="responsive-img materialboxed">
         </div>
         <div class="col s12 l6 offset-l1">
-          <a href="needlesenglish.html" </a> <h2 class="white-text text-darken-4">Needles</h2>
+          <a href="needlesenglish.php" </a> <h2 class="white-text text-darken-4">Needles</h2>
             <p class="grey-text lighten-3">Sed ut leo nunc. Nulla aliquam eros ex, eget semper nisi ornare vel.
               Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
               Aliquam vehicula tortor erat, non maximus ipsum ultricies in.
@@ -328,7 +336,7 @@
           <img src="./Spark_images/Black Bird/纹身针-04.jpg" alt="" class="responsive-img materialboxed">
         </div>
         <div class="col s12 l6 pull-l5 right-align offset-l1">
-          <a href="blackbirdenglish.html" </a> <h2 class="white-text text-darken-4">Black Bird</h2>
+          <a href="blackbirdenglish.php" </a> <h2 class="white-text text-darken-4">Black Bird</h2>
             <p class="grey-text lighten-3">Sed ut leo nunc. Nulla aliquam eros ex, eget semper nisi ornare vel.
               Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
               Aliquam vehicula tortor erat, non maximus ipsum ultricies in.
@@ -380,160 +388,115 @@
             </p>
           </div>
 
-
-          <!-- /////////////////////////////////////////////////  Paypal  /////////////////////////////////////////////   -->
-          <!-- tabs -->
-          <!-- <div class="col s12 l6 offset-l2"> -->
-        <!-- <ul class="tabs">
-
-          <li class="tab col s6">
-            <a href="#Donaciones" class="indigo-text text-darken-4">donaciones</a>
-          </li>
-
-          <li class="tab col s6">
-            <a href="#editing" class="indigo-text text-darken-4">Delei</a>
-          </li>
-
-
-        </ul> -->
-          <!-- tabs Photography content -->
-          <!-- <div class="col s12" id="Donaciones">
-          <p class="flow-text indigo-text text-darken-4">Donaciones</p>
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <img src="./images/Donacion.png" alt="" width="300" height="150">
-              </div> -->
-
-          <!-- PayPal Botton -->
-          <!-- <div class="col">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies,
-                  nisi a tincidunt cursus, quam nulla lacinia augue, non imperdiet neque mi non nisl.
-                  Donec pellentesque dui sapien, eget vestibulum quam porta ut. Etiam a ultricies nisi,
-                  vel tempus erat.
-                </p>
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                  <input type="hidden" name="cmd" value="_s-xclick" />
-                  <input type="hidden" name="hosted_button_id" value="E7Y9ZXYZHLJNG" />
-                  <input type="image" src="https://www.paypalobjects.com/es_XC/MX/i/btn/btn_donateCC_LG.gif" border="0"
-                    name="submit" title="PayPal - The safer, easier way to pay online!"
-                    alt="Donate with PayPal button" />
-                  <img alt="" border="0" src="./images/paypal.png" width="100" height="100" />
-                </form> -->
-
-          <!-- </div>
-            </div> -->
-
-
-             <!-- //////////////////////////////////////////////  Email Contact Form  //////////////////////////////////////////////////////   -->
+   <!-- //////////////////////////////////////////////  Email Contact Form  //////////////////////////////////////////////////////   -->
             <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
             <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
             <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
             <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
+     
 
-          <!-- Navbar -->
+          <!-- contact form-->
           <div class="container col s12 l8">
+          <form id="contact" action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
+    
+            <!-- Content here -->
+            
+            <div class="row">
+              <div class="" style="background-color: white; border-radius: 15px;">
 
-              <!-- Content here -->
-              <!-- <div class="col s12 l6 offset-l2"> -->
-              <div class="row">
-                <div class="" style="background-color: white; border-radius: 15px;">
-  
-                  <!-- contact form -->
-  
-                  <div class="col-10">
-                    <div class="container px-1 py-1 mt-1 mb-1"
-                      style="border: darkgrey; border-style: solid; border-width: 4px; border-radius: 15px; width: 100%; margin-bottom: 10px;">
-  
-                      <div class="form-group">
-                        <form class="px-4 py-3">
-  
-  
-                          <!-- Form header -->
-                          <h1 class="display-4 text-left padding-bottom-1 " style="color:#4aaaa5; padding-left: 5px;">  Contact us</h1>
-                          <!-- dividing line -->
-                          <hr class="my-4" style="height: 1px ;">
-  
-                          <!-- First Name input -->
-                          <div class="form-group">
-                            <label for="Nombre"></label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1"
-                              placeholder="  Your Name..">
-                          </div>
-  
-                          <!-- Apellido Paterno input -->
-                          <div class="form-group">
-                            <label for="telefono"></label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1"
-                              placeholder="  Your Phone Number..">
-                          </div>
-  
-                          <!-- Email input -->
-                          <div class="form-group">
-                            <label for="exampleFormControlInput1"></label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1"
-                              placeholder="   email@example.com">
-                          </div>
-  
-                          <br>
-  
-                          <!-- Email Subject -->
-                          <div class="form-group">
-                           
-                            <label for="exampleFormControlTextarea1" style="padding-left: 12px;">  Message</label>
-                            
-                            <textarea class="form-control" id="exampleFormControlTextarea1"
-                              placeholder="   Type Message here.." rows="20"></textarea>
-  
-                            <div style="padding-top: 8px; padding-left:12px;">
-                              <button class="btn waves-effect waves-light" type="submit" name="action" value="Submit" style="padding-top: 4px;">Submit
-                              <i class="material-icons right">send</i>
-                                </button>
-                              </div>
-                            <!-- Submit button -->
-                            <!-- <input type="submit" class="mt2 mb-2" value="Submit">
-                          </div> -->
-                        </form>
-                      </div>
+                <!-- contact form -->
+
+                <div class="col-10">
+                  <div class="container px-1 py-1 mt-1 mb-1"
+                    style="border: darkgrey; border-style: solid; border-width: 4px; border-radius: 15px; width: 100%; margin-bottom: 10px;">
+
+                    <div class="form-group">
+                      <form class="px-4 py-3">
+
+
+                        <!-- Form header -->
+                        <h1 class="display-4 text-left padding-bottom-1 padding-left-1" style="color:#4aaaa5; padding-left: 5px;">  Contact us!</h1>
+                        <h4>Contact us today, and get reply with in 24 hours!</h4>
+                        <!-- dividing line -->
+                        <hr class="my-4" style="height: 1px ;">
+
+                        <!-- First Name input -->
+                        <div class="form-group">
+                          <label for="name"></label>
+                          <input type="text" name="name" class="form-control" id="exampleFormControlInput1"
+                          tabindex="1" placeholder="   Name.." >
+                        </div>
+
+                        <!-- Email input -->
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1"></label>
+                          <input type="text" name="email" class="form-control" id="exampleFormControlInput1"
+                          tabindex="2"  placeholder="   name@email.com">
+                        </div>
+
+                        <!-- Apellido Paterno input -->
+                        <div class="form-group">
+                          <label for="telefono"></label>
+                          <input type="text" name="phone" class="form-control" id="exampleFormControlInput1"
+                          tabindex="3" placeholder="   Phone number..">
+                        </div>
+
+                        <!-- subject input -->
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1"></label>
+                          <input type="text" name="subject" class="form-control" id="exampleFormControlInput1"
+                          tabindex="4"  placeholder="   Subject...">
+                        </div>
+
+                        <!-- <br> -->
+
+                        <!-- Email Subject -->
+                        <div class="form-group">
+                         
+                          <label for="exampleFormControlTextarea1" style="padding-left: 12px;">  Message</label>
+                          
+                          <textarea class="form-control" 
+                            placeholder="Message here.."  type="text" name="message" tabindex="5" rows="20">
+                          </textarea>
+                          <div style="padding-top: 8px; padding-left:12px;">
+                        
+
+
+                              <fieldset>
+                              <button name="submit" value= "submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                              </fieldset>
+                            </div>
+                          <!-- Submit button -->
+                          <!-- <input type="submit" class="mt2 mb-2" value="Submit"> -->
+                        </div>
+                      </form>
                     </div>
-                    <!-- container3 form closing div -->
                   </div>
-  
+                  <!-- container3 form closing div -->
                 </div>
-  
+
               </div>
-  
+
             </div>
-  
-  
-  
+
           </div>
-  
-          </div>
-          </div>
-          <br>
-          </div>
-  
-          </div>
-  
-  
-  
-          <!-- tabs Editing content -->
-          <!-- <div class="col s12" id="editing">
-        <p class="flow-text indigo-text text-darken-4">Empleos</p>
-        <p>
-          Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
-          Aliquam vehicula tortor erat, non maximus ipsum ultricies in.
-        </p>
-      </div> -->
-  
-  
-  
-          <!-- closing tags -->
-          </div>
-  
-        </section>
+
+
+
+        </div>
+
+        </div>
+        </div>
+        <br>
+        </div>
+
+        </div>
+
+
+        <!-- closing tags -->
+        </div>
+
+      </section>
 
       <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
       <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////   -->
