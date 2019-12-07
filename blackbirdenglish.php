@@ -298,12 +298,12 @@
 
   <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
   <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyCJCXcrNZ7tqIt_CUu1pp8tMwBIJtrW1o8",
-      authDomain: "deleiphone-b0f98.firebaseapp.com",
-      databaseURL: "https://deleiphone-b0f98.firebaseio.com",
-      projectId: "deleiphone-b0f98"
+        // Initialize Firebase
+        var config = {
+      apiKey: "##########",
+      authDomain: "",
+      databaseURL: "",
+      projectId: "############"
     };
 
     firebase.initializeApp(config);

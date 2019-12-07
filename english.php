@@ -10,8 +10,8 @@ $mail->Host='smtp.gmail.com';
 $mail->port=587;
 $mail->SMTPAuth=true;
 $mail->SMTPSecure='tls';
-$mail->Username='parsolint@gmail.com';
-$mail->Password='Parallax_19';
+$mail->Username='#############';
+$mail->Password='###########';
 
 $mail->setFrom($_POST['email'],$_POST['name']);
 $mail->addAddress($_POST['email']);
@@ -1215,14 +1215,14 @@ exit;
       <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase-functions.js"></script>
 
 
-      <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
-      <script>
+    <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
+    <script>
         // Initialize Firebase
         var config = {
-      apiKey: "AIzaSyCJCXcrNZ7tqIt_CUu1pp8tMwBIJtrW1o8",
-      authDomain: "deleiphone-b0f98.firebaseapp.com",
-      databaseURL: "https://deleiphone-b0f98.firebaseio.com",
-      projectId: "deleiphone-b0f98"
+      apiKey: "##########",
+      authDomain: "",
+      databaseURL: "",
+      projectId: "############"
     };
 
         firebase.initializeApp(config);

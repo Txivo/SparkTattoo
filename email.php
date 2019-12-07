@@ -10,8 +10,8 @@ $mail->Host='smtp.gmail.com';
 $mail->port=587;
 $mail->SMTPAuth=true;
 $mail->SMTPSecure='tls';
-$mail->Username='parsolint@gmail.com';
-$mail->Password='Parallax_19';
+$mail->Username='##########';
+$mail->Password='##########';
 
 $mail->setFrom($_POST['email'],$_POST['name']);
 $mail->addAddress($_POST['email']);
