@@ -62,19 +62,19 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
 
         <li class="logged-in" style="display: none;">
-          <a href="index.html" class="grey-text modal-trigger" data-target="modal-home">Home</a>
+          <a href="index.php" class="grey-text modal-trigger" data-target="modal-home">Home</a>
         </li>
 
         <li class="logged-out" style="display: none;">
-          <a href="index.html" class="grey-text modal-trigger" data-target="modal-home">Home</a>
+          <a href="index.php" class="grey-text modal-trigger" data-target="modal-home">Home</a>
         </li>
 
         <li class="logged-out" style="display: none;">
-          <a href="axisenglish.html" class="grey-text modal-trigger" data-target="modal-home">English</a>
+          <a href="axisenglish.php" class="grey-text modal-trigger" data-target="modal-home">English</a>
         </li>
 
         <li class="logged-out" style="display: none;">
-          <a href="axis.html" class="grey-text modal-trigger" data-target="modal-home">Español</a>
+          <a href="axis.php" class="grey-text modal-trigger" data-target="modal-home">Español</a>
         </li>
 
       </ul>
@@ -84,11 +84,11 @@
    <!-- ////////////////////////////////////////  Movil Side navbar  ////////////////////////////////////////////// -->
 
    <ul class="sidenav" id="mobile-demo">
-    <!-- <li><a href="sass.html">Sass</a></li> -->
-    <li><a href="index.html">Home</a></li>
-    <li><a href="axisenglish.html">English</a></li>
-    <li><a href="axis.html">Español</a></li>
-    <!-- <li><a href="mobile.html">Mobile</a></li> -->
+    <!-- <li><a href="sass.php">Sass</a></li> -->
+    <li><a href="index.php">Home</a></li>
+    <li><a href="axisenglish.php">English</a></li>
+    <li><a href="axis.php">Español</a></li>
+    <!-- <li><a href="mobile.php">Mobile</a></li> -->
   </ul>
 
 
@@ -150,7 +150,7 @@
         <img src="./Spark_images/NEw Spark Axis +Precise Cartriges-SPT/969625ad-5280-44a2-9cf3-a70fb2d33b92.jpg" alt="" class="responsive-img materialboxed">
       </div>
       <div class="col s12 l6 offset-l1">
-        <a href="needles.html" </a> <h2 class="grey-text text-darken-4">Spark Axis Cartriges</h2>
+        <a href="needles.php" </a> <h2 class="grey-text text-darken-4">Spark Axis Cartriges</h2>
           <p class="grey-text lighten-3">Sed ut leo nunc. Nulla aliquam eros ex, eget semper nisi ornare vel.
             Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
             Aliquam vehicula tortor erat, non maximus ipsum ultricies in.

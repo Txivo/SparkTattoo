@@ -66,15 +66,15 @@
         </li>
 
         <li class="logged-out" style="display: none;">
-          <a href="index.html" class="grey-text modal-trigger" data-target="modal-home">Home</a>
+          <a href="index.php" class="grey-text modal-trigger" data-target="modal-home">Home</a>
         </li>
 
         <li class="logged-out" style="display: none;">
-          <a href="english.html" class="grey-text modal-trigger" data-target="modal-home">English</a>
+          <a href="english.php" class="grey-text modal-trigger" data-target="modal-home">English</a>
         </li>
 
         <li class="logged-out" style="display: none;">
-          <a href="index.html" class="grey-text modal-trigger" data-target="modal-home">Español</a>
+          <a href="index.php" class="grey-text modal-trigger" data-target="modal-home">Español</a>
         </li>
 
       </ul>
@@ -85,11 +85,11 @@
    <!-- ////////////////////////////////////////  Movil Side navbar  ////////////////////////////////////////////// -->
 
    <ul class="sidenav" id="mobile-demo">
-    <!-- <li><a href="sass.html">Sass</a></li> -->
-    <li><a href="index.html">Home</a></li>
-    <li><a href="stpenglish.html">English</a></li>
-    <li><a href="stp.html">Español</a></li>
-    <!-- <li><a href="mobile.html">Mobile</a></li> -->
+    <!-- <li><a href="sass.php">Sass</a></li> -->
+    <li><a href="index.php">Home</a></li>
+    <li><a href="stpenglish.php">English</a></li>
+    <li><a href="stp.php">Español</a></li>
+    <!-- <li><a href="mobile.php">Mobile</a></li> -->
   </ul>
 
 

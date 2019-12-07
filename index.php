@@ -152,11 +152,11 @@ body {
           </li>
 
           <li class="logged-out" style="display: none;">
-            <a href="english.html" class="white-text modal-trigger" data-target="modal-home">English</a>
+            <a href="english.php" class="white-text modal-trigger" data-target="modal-home">English</a>
           </li>
 
           <li class="logged-out" style="display: none;">
-            <a href="index.html" class="white-text modal-trigger" data-target="modal-home">Español</a>
+            <a href="index.php" class="white-text modal-trigger" data-target="modal-home">Español</a>
           </li>
 
          
@@ -167,11 +167,11 @@ body {
   <!-- ////////////////////////////////////////  Movil Side navbar  ////////////////////////////////////////////// -->
 
   <ul class="sidenav" id="mobile-demo">
-      <!-- <li><a href="sass.html">Sass</a></li> -->
+      <!-- <li><a href="sass.php">Sass</a></li> -->
       
-      <li><a href="english.html">english</a></li>
-      <li><a href="index.html">Español</a></li>
-      <!-- <li><a href="mobile.html">Mobile</a></li> -->
+      <li><a href="english.php">english</a></li>
+      <li><a href="index.php">Español</a></li>
+      <!-- <li><a href="mobile.php">Mobile</a></li> -->
     </ul>
 
 
@@ -262,7 +262,7 @@ body {
             class="responsive-img materialboxed logged-out">
         </div>
         <div class="col 12 l6 offset-l1">
-          <a href="spd.html" </a> <h2 class="white-text text-darken-4">Cartuchos de Membrana True Color-SPD</h2>
+          <a href="spd.php" </a> <h2 class="white-text text-darken-4">Cartuchos de Membrana True Color-SPD</h2>
             <p class="grey-text lighten-3">Sed ut leo nunc. Nulla aliquam eros ex, eget semper nisi ornare vel.
               Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
               Aliquam vehicula tortor erat, non maximus ipsum ultricies in.
@@ -280,7 +280,7 @@ body {
           <img src="./Spark_images/TrueColor+ Cartriges-STP-T/Pic2.jpg" alt="" class="responsive-img materialboxed">
         </div>
         <div class="col s12 l6 pull-l5 right-align offset-l1">
-          <a href="stp.html" </a> <h2 class="white-text text-darken-4">Cartuchos True color-STP-T</h2>
+          <a href="stp.php" </a> <h2 class="white-text text-darken-4">Cartuchos True color-STP-T</h2>
             <p class="grey-text lighten-3">Sed ut leo nunc. Nulla aliquam eros ex, eget semper nisi ornare vel.
               Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
               Aliquam vehicula tortor erat, non maximus ipsum ultricies in.
@@ -297,7 +297,7 @@ body {
             alt="" class="responsive-img materialboxed">
         </div>
         <div class="col s12 l6 offset-l1">
-          <a href="axis.html" </a> <h2 class="white-text text-darken-4">Nuevo Cartucho de Eje Sparks Precise-SPT</h2>
+          <a href="axis.php" </a> <h2 class="white-text text-darken-4">Nuevo Cartucho de Eje Sparks Precise-SPT</h2>
             <p class="grey-text lighten-3">Sed ut leo nunc. Nulla aliquam eros ex, eget semper nisi ornare vel.
               Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
               Aliquam vehicula tortor erat, non maximus ipsum ultricies in.
@@ -315,7 +315,7 @@ body {
             class="responsive-img materialboxed">
         </div>
         <div class="col s12 l6 pull-l5 right-align offset-l1">
-          <a href="greywash.html" </a> <h2 class="white-text text-darken-4">Membrana Lavado Gris SPE</h2>
+          <a href="greywash.php" </a> <h2 class="white-text text-darken-4">Membrana Lavado Gris SPE</h2>
             <p class="grey-text lighten-3">Sed ut leo nunc. Nulla aliquam eros ex, eget semper nisi ornare vel.
               Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
               Aliquam vehicula tortor erat, non maximus ipsum ultricies in.
@@ -331,7 +331,7 @@ body {
           <img src="./Spark_images/Needles/needles Thumb.jpeg" alt="" class="responsive-img materialboxed">
         </div>
         <div class="col s12 l6 offset-l1">
-          <a href="needles.html" </a> <h2 class="white-text text-darken-4">Agujas</h2>
+          <a href="needles.php" </a> <h2 class="white-text text-darken-4">Agujas</h2>
             <p class="grey-text lighten-3">Sed ut leo nunc. Nulla aliquam eros ex, eget semper nisi ornare vel.
               Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
               Aliquam vehicula tortor erat, non maximus ipsum ultricies in.
@@ -347,7 +347,7 @@ body {
           <img src="./Spark_images/Black Bird/纹身针-04.jpg" alt="" class="responsive-img materialboxed">
         </div>
         <div class="col s12 l6 pull-l5 right-align offset-l1">
-          <a href="blackbird.html" </a> <h2 class="white-text text-darken-4">Black Bird</h2>
+          <a href="blackbird.php" </a> <h2 class="white-text text-darken-4">Black Bird</h2>
             <p class="grey-text lighten-3">Sed ut leo nunc. Nulla aliquam eros ex, eget semper nisi ornare vel.
               Fusce sem massa, auctor et ligula id, tempor ullamcorper purus.
               Aliquam vehicula tortor erat, non maximus ipsum ultricies in.
